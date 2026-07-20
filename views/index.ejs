@@ -3,41 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kigali Cypher 250 - Impano z'Abahanzi Nyarwanda</title>
+    <title>Kigali Cypher 250 - Artist Platform</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="/images/logo.png" alt="Kigali Cypher 250 Logo">
-        </div>
-        <h1>KIGALI CYPHER 250</h1>
-        <p>Urubuga ruter'inkunga no kugaragaza impano z'abahanzi Nyarwanda 🇷🇼</p>
-    </header>
+    <div class="main-container">
+        <!-- IGIKORA CY'IBUMOSO (CY'UMUKARA) -->
+        <section class="content-area">
+            <header class="top-nav">
+                <div class="logo-container">
+                    <img src="/images/logo.jpg" alt="Kigali Cypher 250 Logo">
+                    <span class="logo-text">ZONAR (KC250)</span>
+                </div>
+                <div class="contact-info">
+                    <span>01. CALL +250 787 654 3232</span>
+                    <span>02. WRITE INFO@KC250.COM</span>
+                </div>
+                <div class="menu-icon">☰ MENU</div>
+            </header>
 
-    <main>
-        <section class="intro">
-            <h2>Murakaza neza ku mbuga y'abanyempano!</h2>
-            <p>Hano niho hantu honyine ubonera indirimbo, amashusho n'amateka y'abahanzi bari kuzamuka neza mu Rwanda.</p>
+            <main class="hero-section">
+                <div class="number-counter">01 <span class="total">/04</span></div>
+                <div class="artist-highlight">
+                    <p class="welcome-text">WELCOME TO MY CYPHER</p>
+                    <h1>BRUCE MELODIE - <br> <span class="orange-text">AFROBEAT KING</span> <br> FROM RWANDA</h1>
+                    <p class="bio-text">Umwami w'injyana ya Afrobeat mu Rwanda, ufite amateka y'indirimbo z'ibihe byose.</p>
+                    <div class="portfolio-btn">MY PORTFOLIO</div>
+                </div>
+                <div class="big-number">01</div>
+            </main>
+
+            <footer class="footer-nav">
+                <div class="social-links">F T IG</div>
+                <div class="start-explore">START EXPLORE</div>
+            </footer>
         </section>
 
-        <section class="artists-grid">
-            <h2>Abahanzi Bagaragaza Ubuhanga</h2>
-            <div class="grid">
-                <% artists.forEach(artist => { %>
-                    <div class="card">
-                        <h3><%= artist.name %></h3>
-                        <span class="genre"><%= artist.genre %></span>
-                        <p><%= artist.bio %></p>
-                        <button onclick="alert('Murakoze gushyigikira <%= artist.name %>!')">Sura Umuhanzi</button>
-                    </div>
-                <% }) %>
+        <!-- IGIKORA CY'IBURYO (CY'ICUNGA) -->
+        <aside class="sidebar-area">
+            <div class="sidebar-content">
+                <div class="slider-tag">HOME SLIDER</div>
+                <div class="interactive-circle">
+                    <div class="outer-ring"></div>
+                    <div class="inner-dot"></div>
+                    <div class="play-pause-btn">||</div>
+                </div>
             </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Kigali Cypher 250. Uburenganzira bwose burarengewe.</p>
-    </footer>
+        </aside>
+    </div>
 </body>
 </html>

@@ -1,91 +1,251 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212;
-    color: #ffffff;
+/* IBI MBERE (ROOT) */
+:root {
+    --bg-dark: #121212;
+    --bg-main-overlay: rgba(18, 18, 18, 0.9);
+    --bg-orange: #ff6600;
+    --text-white: #ffffff;
+    --text-grey: #aaaaaa;
+    --text-orange-highlight: #ff9933;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
     margin: 0;
     padding: 0;
+    height: 100%;
+    font-family: var(--font-main);
+    background-color: var(--bg-dark);
+    overflow: hidden; /* Kugira ngo ibe ifashe screen yose */
 }
 
-header {
-    text-align: center;
-    padding: 2rem;
-    background-color: #1a1a1a;
-    border-bottom: 3px solid #ffcc00;
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 300px; /* Ibice bibiri: Main (bwinshi) na Sidebar (icunga) */
+    height: 100vh;
 }
 
-.logo-container img {
-    max-width: 150px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(255, 204, 0, 0.3);
+/* IGIKORA CY'IBUMOSO (CONTENT AREA) */
+.content-area {
+    background-image: url('/images/artist-hero-bg.jpg'); /* Hano wahashyira ifoto y'umuhanzi wifuza */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--text-white);
+    position: relative;
+    z-index: 1;
 }
 
-header h1 {
-    color: #ff3333;
-    margin: 10px 0;
+.content-area::before { /* Overlay y'umukara hejuru y'ifoto */
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: var(--bg-main-overlay);
+    z-index: -1;
+}
+
+/* Navigation yo hejuru */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
     letter-spacing: 2px;
 }
 
-main {
-    padding: 2rem;
-    max-width: 1100px;
-    margin: auto;
+.logo-container img {
+    max-height: 40px;
 }
 
-.intro {
-    text-align: center;
-    margin-bottom: 2rem;
+.contact-info {
+    display: flex;
+    gap: 30px;
+    color: var(--text-grey);
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background-color: #1e1e1e;
-    padding: 20px;
-    border-radius: 8px;
-    border-left: 4px solid #ffcc00;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-}
-
-.card h3 {
-    margin-top: 0;
-    color: #ffcc00;
-}
-
-.genre {
-    display: inline-block;
-    background: #ff3333;
-    color: white;
-    padding: 3px 8px;
-    font-size: 0.8rem;
-    border-radius: 4px;
-    margin-bottom: 10px;
-}
-
-.card button {
-    background-color: #ffcc00;
-    border: none;
-    color: #121212;
-    padding: 8px 15px;
-    font-weight: bold;
-    border-radius: 4px;
+.menu-icon {
     cursor: pointer;
-    margin-top: 10px;
 }
 
-.card button:hover {
-    background-color: #ff3333;
-    color: white;
+/* Hero Section (Imiterere nyamukuru) */
+.hero-section {
+    padding: 40px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-footer {
-    text-align: center;
-    padding: 1.5rem;
-    background-color: #1a1a1a;
-    margin-top: 3rem;
+.number-counter {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.number-counter .total {
+    color: var(--text-grey);
+    font-size: 1rem;
+}
+
+.artist-highlight {
+    max-width: 600px;
+}
+
+.welcome-text {
+    color: var(--text-grey);
     font-size: 0.9rem;
-    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.artist-highlight h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin: 10px 0;
+}
+
+.orange-text {
+    color: var(--text-orange-highlight);
+}
+
+.bio-text {
+    color: var(--text-grey);
+    font-size: 1rem;
+    margin-top: 20px;
+    max-width: 400px;
+}
+
+.portfolio-btn {
+    margin-top: 40px;
+    display: inline-block;
+    border: 1px solid var(--text-white);
+    padding: 10px 20px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.portfolio-btn:hover {
+    background-color: var(--text-white);
+    color: var(--bg-dark);
+}
+
+.big-number {
+    position: absolute;
+    bottom: -50px;
+    left: -20px;
+    font-size: 20rem;
+    color: rgba(255, 255, 255, 0.03); /* Igitutu cya nomero nini cyane */
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Footer */
+.footer-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8rem;
+    color: var(--text-grey);
+}
+
+.social-links {
+    letter-spacing: 5px;
+    cursor: pointer;
+}
+
+.start-explore {
+    cursor: pointer;
+}
+
+/* IGIKORA CY'IBURYO (SIDEBAR AREA) */
+.sidebar-area {
+    background-color: var(--bg-orange);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: var(--bg-dark);
+}
+
+.slider-tag {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.interactive-circle {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.outer-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+}
+
+.inner-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--bg-dark);
+    border-radius: 50%;
+}
+
+.play-pause-btn {
+    position: absolute;
+    bottom: -25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* RESPONSIVE (Kuri Telephone) */
+@media (max-width: 768px) {
+    .main-container {
+        grid-template-columns: 1fr; /* Icyuma kimwe gusa kuri telefone */
+        grid-template-rows: 1fr auto;
+    }
+
+    .sidebar-area {
+        order: -1; /* Sidebar y'icunga ijya hejuru kuri mobile */
+        height: 150px;
+    }
+
+    .artist-highlight h1 {
+        font-size: 2rem;
+    }
+
+    .big-number {
+        font-size: 10rem;
+        bottom: -20px;
+    }
+
+    .contact-info {
+        display: none; /* Ntitugaragaze nimero kuri mobile */
+    }
 }
